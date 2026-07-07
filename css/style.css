@@ -1,0 +1,1632 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@font-face {
+    font-family: 'Cafe24Surround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RomanticGumi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiRomanceTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HeartBubble';
+    /* 앞으로 CSS에서 사용할 폰트 이름 */
+    src: url('../fonts/Heart\ Bubble.otf') format('truetype');
+    /* 폰트 파일이 있는 실제 경로 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24SuperMagic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Regular-v1.0.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    color: #fff;
+    cursor: url('../images/sora_cursor.png'), auto;
+    overflow-anchor: none;
+}
+
+
+
+#mainbanner_wrap {
+    width: 100%;
+    height: 100dvh;
+    margin: 0px auto;
+}
+
+.mainbanner {
+    width: 100%;
+    height: 100dvh;
+    background: url(../images/mainbanner.png) no-repeat center 70%;
+    background-size: cover;
+    margin: 0px auto;
+    position: relative;
+}
+
+.mainbanner h2 {
+    font-size: 96px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Cafe24Surround';
+    white-space: nowrap;
+}
+
+#header_wrap {
+    width: 100%;
+    height: 169px;
+    margin: 20px auto;
+}
+
+.header {
+    width: 100%;
+    max-width: 1520px;
+    margin: 0px auto;
+    display: flex;
+    padding-top: 20px;
+}
+
+.logo {
+    display: block;
+    width: 139px;
+    height: 149px;
+    background: url(../images/Header_logo.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+.gnb {
+    width: 100%;
+    max-width: 1281px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 61px;
+    padding-left: 5vw;
+}
+
+.gnb li {
+    font-family: 'Cafe24Surround';
+    color: #fff;
+    font-size: 24px;
+}
+
+.gnb li a {
+    font-size: clamp(20px, 2.5vw, 24px);
+    white-space: nowrap;
+}
+
+.menu a {
+    font-size: 17pt;
+    font-weight: 400;
+    padding: 10px 10px;
+    /**/
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.SMN_effect-4 a:after {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(17, 216, 216, 0.8);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+.SMN_effect-4 a:hover:after,
+.SMN_effect-4 a:focus:after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.mobile_menu_btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile_menu_btn,
+.mobile_sub_menu {
+    display: none;
+}
+
+@media(max-width:1200px) {
+    .mainbanner h2 {
+        font-size: 64px;
+    }
+
+    .header {
+        width: 90%;
+    }
+}
+
+
+
+@media(max-width:700px) {
+
+
+    .header {
+        width: 90%;
+    }
+
+    .logo {
+        background: url(../images/mobile/header_logo.png) no-repeat;
+    }
+
+    .header {
+        position: relative;
+        /* 서브메뉴가 매달릴 기준점 */
+    }
+
+    /* 1. PC용 메뉴 끄기 */
+    .gnb {
+        display: none !important;
+    }
+
+    /* 2. 모바일 메뉴 버튼 켜기 */
+    .mobile_menu_btn {
+        display: block;
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        margin-left: auto;
+
+        align-self: center;
+
+        margin-top: -40px;
+    }
+
+    .mobile_menu_btn img {
+        width: 80px;
+        height: auto;
+        display: block;
+    }
+
+    /* 3. 모바일 서브메뉴 껍데기 디자인 (하늘색 배경) */
+    .mobile_sub_menu {
+        display: block;
+
+        /* 1. 스르륵 내려오기 위한 핵심 세팅 */
+        max-height: 0;
+        /* 처음엔 높이를 0으로 만들어서 닫아둠 */
+        overflow: hidden;
+        /* 0일 때 삐져나오는 글자들을 안 보이게 싹둑 자름 */
+        opacity: 0;
+        /* 처음엔 투명하게 숨김 */
+
+        /* 2. 애니메이션 속도 조절 (0.4초 동안 부드럽게 변함) */
+        transition: all 0.4s ease-in-out;
+
+        /* 3. 위치 및 크기 (아까 적용한 화면 꽉 차게 하는 코드) */
+        position: absolute;
+        top: 100%;
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #9ee5e5;
+        border-top: 0px solid white;
+        /* 평소엔 선도 안 보이게 0px로 둡니다 */
+        z-index: 10;
+    }
+
+    /* JS로 active 클래스가 붙으면 나타남! */
+    .mobile_sub_menu.active {
+
+        max-height: 400px;
+        /* 🌟 메뉴가 다 보일 만큼 넉넉한 높이 지정 (메뉴가 더 많아지면 500px 등으로 늘리세요) */
+        opacity: 1;
+        /* 다시 선명하게 보임 */
+        border-top: 2px solid white;
+        /* 하얀 선도 짠 하고 생김 */
+    }
+
+    /* 4. 내부 글자 및 하얀색 구분선 디자인 */
+    .mobile_sub_menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile_sub_menu li {
+        text-align: center;
+        border-bottom: 2px solid white;
+
+    }
+
+    .mobile_sub_menu li a {
+        display: block;
+        padding: 15px 0;
+        color: #191716;
+        font-size: 18px;
+        text-decoration: none;
+        font-size: 32px;
+        font-family: 'cafe24surround';
+    }
+}
+
+
+#Outocean {
+    width: 100%;
+    height: 100dvh;
+    background: url(../images/background_bluesky_1.png) no-repeat center;
+    background-size: cover;
+    margin: 0px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200vw;
+    /* 화면 너비의 2배로 설정해 좌우로 움직일 여백 확보 */
+    height: 200px;
+    /* 파도의 높이 */
+}
+
+.wave img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes wave-flow {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-50%);
+        /* 화면 너비만큼 왼쪽으로 이동 */
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.Wave1 {
+    animation: wave-flow 10s linear infinite;
+    /* 가장 느리게 오른쪽으로 이동 */
+    z-index: 5;
+}
+
+.Wave2 {
+    animation: wave-flow 8s linear infinite reverse;
+    /* 약간 빠르게 왼쪽으로 이동 */
+    bottom: 22px;
+    z-index: 4;
+}
+
+.Wave3 {
+    animation: wave-flow 6s linear infinite;
+    /* 중간 속도로 오른쪽으로 이동 */
+    z-index: 3;
+    bottom: 77px;
+}
+
+.Wave4 {
+    animation: wave-flow 4s linear infinite reverse;
+    /* 가장 빠르게 왼쪽으로 이동 */
+    bottom: 60px;
+    z-index: 2;
+    bottom: 83px;
+}
+
+.Cloud {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    bottom: 199px;
+    right: 5%;
+    max-width: 500px;
+    min-width: 150px;
+}
+
+.jelly_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    /* 필요시 유지 */
+}
+
+.jelly_basic {
+    position: relative;
+}
+
+.Outocean_jelly_speech_bubble {
+    /* 기본 배경 설정 */
+    background-image: url('../images/Orange_Bubble_talk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* 🌟 이미지가 박스 안에 쏙 들어오게! */
+
+    /* 박스 크기 조절 */
+    width: 300px;
+    height: 228px;
+    /* 예시 높이 */
+    position: absolute;
+    top: -60%;
+    left: -50%;
+
+    /* 글자 정중앙 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Outocean_jelly_speech_bubble.active {
+    display: block;
+    /* 이제 flex 대신 block을 씁니다 */
+}
+
+.dialogue_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 이미지 한가운데로 정렬 */
+
+    width: 80%;
+    /* 글자가 삐져나가지 않게 너비 제한 */
+    text-align: center;
+    /* 글자 가운데 정렬 */
+    color: #fff;
+    font-family: 'Cafe24Surround';
+    font-size: 24px;
+    /* 말풍선 색에 맞춰 잘 보이는 글자색으로 변경하세요 (예: 검정색) */
+
+    /* 필요하면 font-size, font-weight 등을 추가하세요 */
+}
+
+.dialogue_arrow {
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    top: -124px;
+    left: 120px;
+    z-index: 9999;
+}
+
+.dialogue_arrow a {
+    display: inline-block;
+}
+
+.dialogue_arrow img {
+    display: block;
+}
+
+.dialogue_arrow img {
+    pointer-events: none;
+}
+
+.dialogue_arrow:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+@media(max-width:700px) {
+    .Outocean_jelly_speech_bubble {
+        background: url(../images/mobile/Orange_Bubble_talk_outocean.png) no-repeat;
+        top: -80%;
+        left: -80%;
+    }
+
+    .dialogue_arrow {
+        scale: 0.7;
+        top: -114px;
+        left: 50px;
+    }
+
+    .dialogue_text {
+        top: 35%;
+        left: 40%;
+        font-size: 20px;
+    }
+}
+
+#Inocean {
+    width: 100%;
+    height: auto;
+    background: url(../images/Background.png) no-repeat center;
+    margin: 0px auto;
+    background-size: 100% 100%;
+    background-position: center top;
+    position: relative;
+
+    aspect-ratio: 1920 / 1920;
+    min-height: auto;
+}
+
+#Inocean h2 {
+    position: relative;
+    /* 🌟 추가: z-index를 작동하게 만듦 */
+    z-index: 2;
+    text-align: center;
+    font-size: 64px;
+    font-family: 'HeartBubble', sans-serif;
+    padding-bottom: 50px;
+}
+
+/* 실루엣 배경 */
+
+.fish_shape {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+
+    /* 🌟 핵심: 화면 너비(vw)의 8% 크기를 유지하되, 
+       아무리 좁아져도 50px보다는 안 작아지고, 아무리 넓어져도 150px보다는 안 커집니다. */
+    width: 20%; 
+    height: auto;
+}
+
+.fish_bg {
+    top: 30%;
+    right: 0%;
+}
+
+.shark_bg {
+    top: 30%;
+    left: 10%;
+}
+
+.jellyfish_bg {
+    top: 40%;
+    left: 10%;
+}
+
+.dolphin_bg {
+    top: 65%;
+    right: 25%;
+}
+
+.manta_bg
+{
+    top: 88%;
+    right: 5%;
+    width: 20%;
+}
+
+.turtle_bg
+{
+    top: 2%;
+    right: 10%;
+    width: 8%;
+}
+
+@media(max-width:1000px) {
+    .fish_bg {
+        top: 32%;
+        right: 0%;
+    }
+
+    .shark_bg {
+        top: 32%;
+        left: 10%;
+    }
+
+    .jellyfish_bg {
+        top: 40%;
+        left: 10%;
+    }
+
+    .dolphin_bg {
+        top: 67%;
+        right: 20%;
+    }
+    .turtle_bg
+    {
+        right: 15%;
+    }
+    .manta_bg
+    {
+        top: 91%;
+        right: 5%;
+    }
+}
+@media(max-width:600px) {
+    .fish_bg {
+        top: 28%;
+        right: 0%;
+    }
+
+    .shark_bg {
+        top: 28%;
+        left: 5%;
+    }
+
+    .jellyfish_bg {
+        top: 40%;
+        left: 10%;
+    }
+
+    .dolphin_bg {
+        top: 67%;
+        right: 20%;
+    }
+    .manta_bg
+    {
+        width: 30%;
+    }
+}
+
+@media(max-width:1000px) {
+    #Inocean {
+        height: auto;
+    }
+
+    #Inocean h2 {
+        padding-bottom: 80px;
+    }
+}
+
+@media(max-width:700px) {
+    #Inocean h2 {
+        padding-bottom: 50px;
+    }
+}
+
+
+.jelly_ticket {
+    padding-top: 200px;
+}
+
+.jelly_ticket .jelly_speech_bubble {
+    bottom: 50%;
+}
+
+.ticket_section {
+    width: 100%;
+    /* 🌟 수정 1: 1220px 고정 대신 내용물에 맞춰 변하게 auto로 변경 */
+    height: auto;
+    padding-bottom: 100px;
+    /* 🌟 밑에 넉넉하게 여유 공간 추가 */
+
+    margin: 0px auto;
+
+    /* flex 속성들이 작동하려면 display: flex; 가 꼭 있어야 합니다 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.ticket_section h2 {
+    padding-top: 50px;
+}
+
+.ticket_table_section {
+    width: 100%;
+    /* 🌟 수정 2: max-height가 아니라 max-width 입니다! (아주 중요) */
+    max-width: 1720px;
+    height: auto;
+    display: flex;
+    margin: 0px auto;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ticket_table_section>picture {
+    flex: 0 0 55%;
+    min-width: 0;
+}
+
+.ticket_table_section>picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.jelly_ticket {
+    /* 🌟 수정 3: 젤리도 티켓(55%)과 짝꿍이 되도록 35%로 단단히 묶어줍니다 */
+    flex: 0 0 35%;
+    min-width: 0;
+
+    position: relative;
+    /* 말풍선 위치 잡으려면 꼭 필요합니다 */
+
+    max-width: 250px;
+
+    /* 🌟 200px 대신 10vw를 써야 화면이 줄어들 때 사이 여백도 예쁘게 줄어듭니다 */
+    padding-top: 10vw;
+}
+
+.jelly_ticket>img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 방금 전에 aspect-ratio로 완벽하게 셋팅한 말풍선 코드와 연결되는 부분입니다 */
+.jelly_ticket .jelly_speech_bubble {
+    position: absolute;
+    /* 동물 이미지 위쪽 정중앙에 배치 */
+    transform: translateX(-50%);
+    bottom: 60%;
+    right: -25%;
+
+    /* 배경 이미지 설정 */
+    background-image: url('../images/Orange_Bubble_talk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    /* 🌟 핵심 1: 절대값(px)을 지우고 부모(젤리) 너비의 100% (또는 90%)를 차지하게 만듭니다. */
+    width: 100%;
+
+    /* 🌟 핵심 2: 말풍선이 젤리와 함께 무한정 커지는 걸 막는 상한선! (기존 말풍선 크기) */
+    max-width: 300px;
+
+    /* 🌟 핵심 3: 가로세로 비율(300:228)을 유지하며 스르륵 줄어들게 하는 마법의 속성 */
+    aspect-ratio: 300 / 228;
+    height: auto;
+    /* 고정된 height: 228px이 있다면 반드시 auto로 덮어써야 합니다! */
+
+    /* 글자 정중앙 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 폰트 설정 */
+    font-family: 'Cafe24Surround';
+    color: #fff;
+    box-sizing: border-box;
+
+    /* 🌟 핵심 4: 말풍선이 작아지면 글자도 같이 작아지게 만듭니다 (최소 12px ~ 최대 24px) */
+    font-size: 24px;
+
+    /* 패딩(여백)도 px 대신 %를 써야 말풍선 비율이 깨지지 않습니다 */
+    padding-bottom: 5%;
+}
+
+
+
+@media (max-width: 1000px) {
+    .ticket_section {
+        height: auto;
+        padding-bottom: 80px;
+    }
+
+    .ticket_table_section {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .jelly_ticket {
+        order: 1;
+        /* 젤리를 1번(위)으로 배치 */
+        padding-top: 50px;
+        margin-bottom: 40px;
+    }
+
+    /* 🌟 핵심 변경: 대상을 img에서 picture로 바꿉니다! */
+    .ticket_table_section>picture {
+        order: 2;
+        /* 픽처(티켓 테이블)를 2번(아래)으로 배치 */
+        width: 90%;
+        /* 화면 밖으로 안 나가게 축소 */
+        max-width: 600px;
+        /* 최대 크기 제한 */
+        display: block;
+    }
+
+    /* 🌟 픽처 태그 안의 진짜 이미지가 픽처 껍데기에 꽉 차도록 설정 */
+    .ticket_table_section>picture img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .jelly_ticket .jelly_speech_bubble {
+        right: 25%;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .jelly_ticket .jelly_speech_bubble {
+        background-image: url('../images/mobile/Orange_Bubble_talk\ 1.png');
+        aspect-ratio: 200 / 153;
+
+        max-width: 200px;
+        width: 80%;
+
+        width: 100%;
+        right: 25%;
+    }
+
+    .jelly_ticket .jelly_speech_bubble p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .jelly_clock .jelly_speech_bubble {
+        background-image: url('../images/mobile/Orange_Bubble_talk\ 1.png');
+        aspect-ratio: 200 / 153;
+
+        max-width: 200px;
+        width: 80%;
+
+        width: 100%;
+        right: 20%;
+    }
+
+    .jelly_clock .jelly_speech_bubble p {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+
+.Business_hours_section {
+    width: 100%;
+    /* 🌟 핵심 1: 고정 높이 861px 지우고 auto로 변경 */
+    height: auto;
+    padding-bottom: 100px;
+    /* 아래쪽 여백 넉넉히 */
+}
+
+.Business_hours_section2 {
+    width: 100%;
+    max-width: 1720px;
+    /* 🌟 핵심 2: 고정 높이 694px 지우고 auto로 변경 */
+    height: auto;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px auto 0px auto;
+}
+
+/* 🌟 왼쪽 시간표 이미지 구역 (티켓처럼 55% 차지하게 설정) */
+.Business_hours_section2>div:first-child {
+    flex: 0 0 55%;
+    min-width: 0;
+    max-width: 800px;
+    /* 시간표 원본 크기 상한선 */
+}
+
+.Business_hours_section2>div:first-child img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 🌟 오른쪽 젤리 시계 구역 (35% 차지하게 설정) */
+.jelly_clock {
+    flex: 0 0 35%;
+    min-width: 0;
+    max-width: 350px;
+    /* 젤리 시계 원본 크기 상한선 */
+    position: relative;
+    padding-top: 10vw;
+    /* 젤리 위쪽 여유 공간 */
+}
+
+.jelly_clock>img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* (주의: 말풍선 .jelly_speech_bubble 코드는 아까 쓰셨던 완벽 비율 코드를 그대로 쓰시면 됩니다!) */
+
+.jelly_clock .jelly_speech_bubble {
+    position: absolute;
+    /* 동물 이미지 위쪽 정중앙에 배치 */
+    transform: translateX(-50%);
+    bottom: 60%;
+    right: 0%;
+
+    /* 배경 이미지 설정 */
+    background-image: url('../images/Orange_Bubble_talk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    /* 🌟 핵심 1: 절대값(px)을 지우고 부모(젤리) 너비의 100% (또는 90%)를 차지하게 만듭니다. */
+    width: 100%;
+
+    /* 🌟 핵심 2: 말풍선이 젤리와 함께 무한정 커지는 걸 막는 상한선! (기존 말풍선 크기) */
+    max-width: 300px;
+
+    /* 🌟 핵심 3: 가로세로 비율(300:228)을 유지하며 스르륵 줄어들게 하는 마법의 속성 */
+    aspect-ratio: 300 / 228;
+    height: auto;
+    /* 고정된 height: 228px이 있다면 반드시 auto로 덮어써야 합니다! */
+
+    /* 글자 정중앙 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 폰트 설정 */
+    font-family: 'Cafe24Surround';
+    color: #fff;
+    box-sizing: border-box;
+
+    /* 🌟 핵심 4: 말풍선이 작아지면 글자도 같이 작아지게 만듭니다 (최소 12px ~ 최대 24px) */
+    font-size: 24px;
+
+    /* 패딩(여백)도 px 대신 %를 써야 말풍선 비율이 깨지지 않습니다 */
+    padding-bottom: 5%;
+}
+
+/* ================================
+   📱 모바일 버전 (1000px 이하)
+   ================================ */
+@media (max-width: 1000px) {
+
+    /* 1. 가로를 세로로 꺾어줍니다 */
+    .Business_hours_section2 {
+        flex-direction: column;
+    }
+
+    /* 2. 젤리 시계를 1번(위)으로 올리기 */
+    .jelly_clock {
+        order: 1;
+        padding-top: 50px;
+        margin-bottom: 40px;
+
+        /* 모바일에서 젤리가 너무 크지 않게 제한 */
+        width: 60%;
+        max-width: 250px;
+    }
+
+    /* 3. 🌟 이름 수정 완료! 시간표 이미지를 2번(아래)으로 내리기 */
+    .Business_hours_section2>div:first-child {
+        order: 2;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .jelly_clock .jelly_speech_bubble {
+        bottom: auto;
+        top: -20%;
+    }
+}
+
+@media (max-width: 700px) {
+    .jelly_clock {
+        order: 1;
+        padding-top: 50px;
+        margin-bottom: 40px;
+
+        /* 모바일에서 젤리가 너무 크지 않게 제한 */
+        width: 60%;
+        max-width: 200px;
+    }
+}
+
+.scroll-effect {
+    opacity: 0;
+}
+
+/* 애니메이션 클래스가 붙으면 보이게 만듦 */
+.scroll-effect.animate__animated {
+    opacity: 1;
+    transition: opacity 0.1s;
+}
+
+.Aquafriends_section {
+    width: 100%;
+    max-width: 1720px;
+    height: auto;
+    /* 🌟 고정 높이 제거 */
+    margin: 0px auto;
+    position: relative;
+    padding-bottom: 100px;
+    /* 맨 아래 여백 */
+}
+
+/* 젤리 배치 (absolute를 풀고 자연스럽게 가운데 정렬) */
+.jelly_basic2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* 젤리를 가운데로 */
+    margin: 200px auto 0px auto;
+    /* 위아래 여백으로 위치 조절 */
+    width: 35%;
+    /* 젤리 크기도 화면에 맞게 반응형으로 */
+    max-width: 300px;
+    text-align: center;
+}
+
+.jelly_basic2>img {
+    width: 100%;
+    height: auto;
+}
+
+.Aquafriends_animal_section {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    /* 🌟 고정 높이 제거 */
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    /* 세로로 나열 */
+    gap: 100px;
+    /* 🌟 동물들 사이의 위아래 간격 (원하는 대로 조절하세요) */
+    padding: 0 5%;
+    /* 모바일에서 화면 끝에 닿지 않게 안전 여백 */
+    box-sizing: border-box;
+    padding-top: 150px;
+}
+
+/* 동물 박스 공통 설정 */
+.animal_box {
+    position: relative;
+    /* 말풍선을 띄우기 위한 기준점 */
+    width: 30% !important;
+    /* 동물이 화면의 30% 정도만 차지하게 */
+    max-width: 300px !important;
+    /* 너무 커지지 않게 제한 */
+    z-index: 2;
+}
+
+.animal_box>img {
+    height: auto;
+    display: block;
+}
+
+.Aquafriends_animal_section .animal_box {
+    max-width: 100%;
+    /* 부모 컨테이너를 절대 넘지 않게 함 */
+    box-sizing: border-box;
+    /* 패딩/테두리 포함하여 크기 계산 */
+}
+
+
+/* 🌟 홀수 번째 동물 (1, 3, 5번) : 오른쪽으로 딱 붙이기 */
+.Aquafriends_animal_section .animal_box:nth-child(1),
+.Aquafriends_animal_section .animal_box:nth-child(3),
+.Aquafriends_animal_section .animal_box:nth-child(5) {
+    align-self: flex-end;
+}
+
+/* 🌟 짝수 번째 동물 (2, 4번) : 왼쪽으로 딱 붙이기 */
+.Aquafriends_animal_section .animal_box:nth-child(2),
+.Aquafriends_animal_section .animal_box:nth-child(4) {
+    align-self: flex-start;
+}
+
+.Aquafriends_animal_section .animal_box p {
+    font-size: 24px;
+    font-family: 'Cafe24Surround';
+    text-align: center;
+}
+
+.speech_bubble {
+    display: none;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    /* 🌟 고정된 313px, 224px 지우기! */
+    width: 100%;
+    /* 동물 크기보다 1.5배 크게 설정 (필요시 조절) */
+    max-width: 313px;
+    /* 원본 최대 크기 제한 */
+    min-width: 200px;
+    aspect-ratio: 313 / 224;
+    /* 가로세로 비율 유지 마법 */
+    height: auto;
+
+    justify-content: center;
+    align-items: center;
+
+    /* 글자 크기도 화면에 맞춰 변하게 */
+    font-size: 24px;
+    font-family: 'Cafe24Surround';
+    /* 오타 수정 (SSround -> Surround) */
+    color: #191716;
+
+    padding-bottom: 5%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.animal_box:hover .speech_bubble {
+    display: flex;
+    /* 마우스를 올렸을 때만 나타남 */
+
+}
+
+.jelly_speech_bubble {
+    position: absolute;
+    /* 동물 이미지 위쪽 정중앙에 배치 */
+    transform: translateX(-50%);
+
+    /* 직접 만든 말풍선 이미지 배경으로 깔기 */
+    background-image: url('../images/Orange_Bubble_talk.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    /* 🌟 핵심 1: 고정된 px을 지우고 부모(젤리) 너비에 맞춰 %로 바꿉니다 */
+    width: 90%;
+    /* 젤리 크기의 90%만큼 차지 (너무 크면 80% 등으로 조절) */
+
+    /* 🌟 핵심 2: 원래 가로(300) 세로(228) 비율을 브라우저가 알아서 계산해 줍니다! (진짜 유용한 기능) */
+    aspect-ratio: 300 / 228;
+
+    height: auto;
+    /* 기존 228px 지우고 auto로 변경 */
+
+    /* 말풍선 안의 글자를 정중앙에 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Cafe24Surround';
+
+    /* 🌟 핵심 3: 폰트도 고정 24px을 지우고 말풍선과 함께 스르륵 줄어들게 만듭니다 */
+    font-size: 24px;
+    color: #fff;
+
+    /* 🌟 핵심 4: 패딩도 말풍선이 작아지면 같이 작아지도록 %로 바꿉니다 */
+    padding-bottom: 5%;
+
+    box-sizing: border-box;
+
+    /* 위치 잡기 */
+    bottom: 100%;
+    right: 0%;
+    /* 필요에 따라 right나 left 값을 조절해 젤리 머리 위에 예쁘게 올려주세요 */
+}
+
+@media (max-width: 700px) {
+    .jelly_basic2 .jelly_speech_bubble {
+        width: 120%;
+    }
+
+    .jelly_basic2 .jelly_speech_bubble p {
+        max-width: 300px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Aquafriends_animal_section {
+        gap: 200px;
+    }
+
+
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(1) .speech_bubble {
+    background-image: url('../images/Mint_Bubble_talk.png');
+    transform: scaleX(-1);
+    bottom: 70%;
+    /* 숫자를 늘리면 동물과 말풍선 사이 간격이 멀어집니다 */
+    right: 80%;
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(1) .speech_bubble p {
+    transform: scaleX(-1);
+}
+
+/* 두 번째 동물 (가오리) */
+.Aquafriends_animal_section .animal_box:nth-child(2) .speech_bubble {
+    background-image: url('../images/Navy_Bubble_talk.png');
+    /* 핑크 말풍선 예시 */
+    bottom: 100%;
+    /* 숫자를 늘리면 동물과 말풍선 사이 간격이 멀어집니다 */
+    left: 100%;
+    color: #fff;
+
+}
+
+/* 세 번째 동물 (젠투펭귄) */
+.Aquafriends_animal_section .animal_box:nth-child(3) .speech_bubble {
+    background-image: url('../images/Red_Bubble_talk.png');
+    /* 노랑 말풍선 예시 */
+    transform: scaleX(-1);
+    bottom: 100%;
+    /* 숫자를 늘리면 동물과 말풍선 사이 간격이 멀어집니다 */
+    right: 90%;
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(4) .speech_bubble {
+    background-image: url('../images/Blue_Bubble_talk.png');
+    /* 노랑 말풍선 예시 */
+    bottom: 100%;
+    /* 숫자를 늘리면 동물과 말풍선 사이 간격이 멀어집니다 */
+    left: 100%;
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(5) .speech_bubble {
+    background-image: url('../images/Brown_Bubble_talk.png');
+    /* 노랑 말풍선 예시 */
+    transform: scaleX(-1);
+    bottom: 100%;
+    /* 숫자를 늘리면 동물과 말풍선 사이 간격이 멀어집니다 */
+    right: 70%;
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(3) .speech_bubble p {
+    transform: scaleX(-1);
+
+}
+
+.Aquafriends_animal_section .animal_box:nth-child(5) .speech_bubble p {
+    transform: scaleX(-1);
+}
+
+.animal_box img {
+    cursor: pointer;
+}
+
+
+/* 모달 전체 배경 (화면 전체를 덮는 어두운 배경) */
+.poster_modal {
+    display: none;
+    /* 처음에는 무조건 숨김 */
+    position: fixed;
+    /* 스크롤을 내려도 화면에 고정 */
+    z-index: 50;
+    /* 제일 앞에 오도록 설정 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* 반투명한 검정색 배경 */
+}
+
+/* 포스터가 뜨는 중앙 박스 */
+.modal_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 완벽한 정중앙 정렬 공식 */
+    width: 80%;
+    /* 화면이 작아질 때를 대비한 유동적 너비 */
+    max-width: 500px;
+    /* 포스터가 너무 커지지 않게 최대 너비 제한 */
+    text-align: center;
+}
+
+/* 팝업 안의 포스터 이미지 */
+#posterImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    /* 포스터 모서리를 둥글게 (선택사항) */
+}
+
+/* X (닫기) 버튼 디자인 */
+.close_btn {
+    position: absolute;
+    top: -40px;
+    /* 포스터 박스 오른쪽 위에 배치 */
+    right: 0;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close_btn:hover {
+    color: #ff5e5e;
+    /* 마우스 올리면 빨간색으로 변함 */
+}
+
+.show_section {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0px auto;
+    padding-bottom: 50px;
+
+}
+
+.show_contents {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    /* event_section과 동일한 비율 유지를 위해 aspect-ratio 사용 */
+    aspect-ratio: 1200 / 600;
+    margin: 0px auto;
+}
+
+.show_image_section {
+    flex: 0 0 50%;
+    /* 너비 50% 고정 */
+    position: relative;
+}
+
+.show_image_section img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* 부모(show_image_section)의 높이에 꽉 참 */
+    object-fit: cover;
+    display: none;
+}
+
+.show_image_section img.active {
+    display: block;
+}
+
+.show_list_section ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* 부모의 높이를 100% 채움 */
+    display: flex;
+    flex-direction: column;
+}
+
+.show_list_section {
+    flex: 0 0 50%;
+    /* 너비 50% 고정 */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* 내부 텍스트 밀림 방지 */
+    background-color: #04BBDF;
+}
+
+.show_list_section ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.show_list_section>ul>li {
+    flex: 1;
+    background-color: #04BBDF;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    border-right: 2px solid #191716;
+    box-sizing: border-box;
+    flex: 1;
+    /* 핵심: li 3개가 동일한 비율로 높이를 나누어 가짐 */
+    min-height: 100px;
+
+}
+
+.show_list_section ul li h3 {
+    font-family: 'Cafe24Surround';
+    padding: 8% 5% 10px 8%;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.show_list_section ul li p {
+    font-family: 'Cafe24SuperMagic';
+    padding-left: 8%;
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+}
+
+.show_list_section ul li img {
+    width: 20%;
+    max-width: 100px;
+    min-width: 20px;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.show_list_section>ul>li:first-child {
+    border-top: 2px solid #191716;
+    border-bottom: 2px solid #191716;
+}
+
+.show_list_section>ul>li:last-child {
+    border-top: 2px solid #191716;
+    border-bottom: 2px solid #191716;
+}
+
+@media (max-width: 1000px) {
+
+    /* 1. 전체 껍데기 유연하게 풀기 */
+    .show_section {
+        width: 90%;
+        max-width: 600px;
+        height: auto;
+        padding-bottom: 50px;
+        margin: 0 auto;
+    }
+
+    /* 2. 핵심! 좌우 배치를 상하(위: 이미지, 아래: 리스트)로 꺾기 */
+    .show_contents {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        /* 🌟 가로(Row)에서 세로(Column)로 변경 */
+        align-items: center;
+        /* 가운데 정렬 */
+    }
+
+    /* 3. 이미지 섹션 (위쪽) */
+    .show_image_section {
+        width: 100%;
+
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* 4. 리스트 섹션 (아래쪽) */
+    .show_list_section {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 5. 리스트 내부 항목들(li)도 유연하게 변경 */
+    .show_list_section>ul>li {
+        width: 100%;
+        /* 고정 600px 해제 */
+        height: 140px;
+        min-height: 140px;
+        /* 원래 높이였던 200px은 최소한으로 보장 (실루엣 이미지 공간 확보) */
+        padding-bottom: 30px;
+        /* 모바일에서 텍스트가 답답하지 않게 아래 여백 추가 */
+    }
+
+    /* (선택) 모바일에서는 화면이 작으니 글자 크기도 살짝 줄여주면 더 예쁩니다 */
+    .show_list_section ul li h3 {
+        padding: 30px 30px 10px 30px;
+        font-size: 24px;
+    }
+
+    .show_list_section ul li p {
+        padding-left: 30px;
+        font-size: 16px;
+    }
+
+    .show_list_section ul li img {
+        right: 30px;
+        /* 실루엣 이미지도 오른쪽 끝에서 살짝 안으로 땡겨줌 */
+    }
+}
+
+.event_section {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    margin: 0px auto;
+    padding-bottom: 100px;
+
+}
+
+.event_contents {
+    width: 100%;
+    height: auto;
+    display: flex;
+    aspect-ratio: 1200 / 600;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.imageSwiper {
+    width: 50%;
+    height: 100%;
+}
+
+.imageSwiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지가 600x600 영역에 꽉 차게 */
+    display: block;
+}
+
+.textSwiper {
+    width: 50%;
+    height: 100%;
+    background-color: #DAFEEE;
+    position: relative;
+    color: #191716;
+    /* pagination이 영역 안에 잘 잡히도록 설정 */
+}
+
+.textSwiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    /* 텍스트 여백 */
+    box-sizing: border-box;
+}
+
+.textSwiper h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Cafe24Surround';
+}
+
+.textSwiper p {
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: 'Cafe24Supermagic';
+}
+
+@media (max-width: 1000px) {
+    .event_section {
+        width: 90%;
+        height: auto;
+    }
+
+    /* 🌟 핵심 1: 껍데기 자체에 전체 가로세로 황금 비율(100 : 61.8)을 걸어버립니다! 
+       이렇게 하면 안쪽 내용물이 발버둥 쳐도 절대 껍데기 이상으로 커지지 않습니다. */
+    .event_contents {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 100 / 61.8;
+        /* display: flex; 와 flex-direction: row; 는 기본값이므로 좌우 배치가 유지됩니다 */
+    }
+
+    /* 🌟 핵심 2: 슬라이드들은 자바스크립트가 헷갈리지 않게 껍데기 높이(100%)에 딱 맞춥니다 */
+    .imageSwiper {
+        width: 61.8%;
+        height: 100%;
+        /* 절대 무한 팽창하지 않음 */
+    }
+
+    .textSwiper {
+        width: 38.2%;
+        height: 100%;
+        /* 이미지와 완벽하게 똑같은 높이 적용 */
+    }
+
+    /* 텍스트 다이어트 (좁아진 공간에 맞게 축소) */
+    .textSwiper .swiper-slide {
+        padding: 20px;
+    }
+
+    .textSwiper h3 {
+        font-size: clamp(16px, 2.5vw, 24px);
+        margin-bottom: 10px;
+    }
+
+    .textSwiper p {
+        font-size: clamp(12px, 1.8vw, 16px);
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* 1. 좌우(Row) 배치를 상하(Column)로 꺾기 */
+    .event_contents {
+        flex-direction: column;
+        height: auto;
+        /* 1000px에서 걸어뒀던 가로 황금비율 족쇄 풀기 */
+        aspect-ratio: auto;
+        padding-bottom: 50px;
+    }
+
+    /* 2. 이미지 슬라이드 (위쪽) */
+    .imageSwiper {
+        width: 90%;
+        /* 가로 꽉 차게 */
+        height: auto;
+        aspect-ratio: 1 / 1;
+        /* Show 섹션처럼 예쁜 정사각형 유지 */
+    }
+
+    /* 3. 텍스트 슬라이드 (아래쪽) */
+    .textSwiper {
+        width: 90%;
+        /* 가로 꽉 차게 */
+        height: 140px;
+        /* 텍스트가 너무 답답하지 않게 최소 높이 확보 */
+    }
+
+    /* 4. 모바일 환경에 맞춰 글자 여백 한 번 더 정리 */
+    .textSwiper .swiper-slide {
+        padding: 40px 20px;
+        /* 위아래 여백을 살짝 늘려서 안정감 부여 */
+    }
+
+    .textSwiper h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .textSwiper p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+.footer_section {
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.footer_section>div:first-child {
+    width: 100%;
+}
+
+/* wave 이미지 설정 */
+.footer_section>div:first-child img {
+    width: 100%;
+    /* 100vw 대신 부모 요소의 너비에 맞춤 */
+    max-width: 1920px;
+    /* 원본 이미지의 최대 너비를 제한 */
+    height: auto;
+    /* 높이를 너비에 맞춰 자동 조절 */
+    display: block;
+    margin: 0px auto;
+}
+
+.footer_link {
+    width: 406px;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+}
+
+.footer_link li {
+    border: none;
+}
+
+.footer_section p {
+    font-family: 'Cafe24supermagic';
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
