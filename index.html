@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="./images/favicon.ico">
 </head>
 
 <body>
     <div id="mainbanner_wrap">
         <div class="mainbanner">
+            <video class="bg-video" autoplay loop muted playsinline>
+                <source src="./images/mainbanner.mp4" type="video/mp4">
+            </video>
             <div id="headaer_wrap">
                 <div class="header">
                     <a href="#">
@@ -98,7 +102,7 @@
         <img src="./images/Turtle_silhouette_bg.png" alt="Turtle_silhouette_bg" class="turtle_bg fish_shape">
         <img src="./images/Manta_silhouette_bg.png" alt="Manta_silhouette_bg" class="manta_bg fish_shape">
         <div class="ticket_section">
-            <h2>Ticket</h2>
+            <h2 class="scroll-effect" data-animate="animate__bounceIn">Ticket</h2>
             <div class="ticket_table_section">
                 <picture>
                     <source srcset="./images/tablet/ticket_table.png" media="(max-width: 1000px)">
@@ -121,7 +125,7 @@
             </div>
         </div>
         <div class="Business_hours_section">
-            <h2>Business hours</h2>
+            <h2 class="scroll-effect" data-animate="animate__bounceInLeft">Business hours</h2>
             <div class="Business_hours_section2">
                 <div>
                     <img src="./images/Business_hours.png" alt="Business_hours">
@@ -142,7 +146,7 @@
             </div>
         </div>
         <div class="Aquafriends_section">
-            <h2>Aqua friends</h2>
+            <h2 class="scroll-effect" data-animate="animate__bounceInRight">Aqua friends</h2>
             <div class="jelly_basic2 scroll-effect" data-animate="animate__rubberBand">
                 <picture>
                     <source srcset="./images/mobile/jelly_basic.png" media="(max-width: 700px)">
@@ -206,7 +210,7 @@
             </div>
         </div>
         <div class="show_section">
-            <h2>Show</h2>
+            <h2 class="scroll-effect" data-animate="animate__fadeInTopLeft">Show</h2>
             <div class="show_contents">
                 <div class="show_image_section">
                     <img src="./images/Mermaid_show.png" alt="Mermaid_show">
@@ -253,7 +257,7 @@
 
         </div>
         <div class="event_section">
-            <h2>Event</h2>
+            <h2 class="scroll-effect" data-animate="animate__fadeInTopRight">Event</h2>
             <div class="event_contents">
                 <!-- 1. 이미지 섹션 (가로 슬라이드) -->
                 <div class="event_image_section swiper imageSwiper">

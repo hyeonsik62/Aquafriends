@@ -59,10 +59,19 @@ body {
 .mainbanner {
     width: 100%;
     height: 100dvh;
-    background: url(../images/mainbanner.png) no-repeat center 70%;
-    background-size: cover;
+    overflow: hidden;
     margin: 0px auto;
     position: relative;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CSS background-size: cover와 동일한 효과 */
+    z-index: -1; /* 헤더와 텍스트(h2) 뒤로 보내기 */
 }
 
 .mainbanner h2 {
