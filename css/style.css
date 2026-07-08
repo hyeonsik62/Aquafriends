@@ -46,8 +46,13 @@ body {
     color: #fff;
     cursor: url('../images/sora_cursor.png'), auto;
     overflow-anchor: none;
+    overflow-x: hidden;
 }
 
+html
+{
+    overflow-x: hidden;
+}
 
 
 #mainbanner_wrap {
@@ -496,6 +501,7 @@ body {
     font-size: 64px;
     font-family: 'HeartBubble', sans-serif;
     padding-bottom: 50px;
+    
 }
 
 /* 실루엣 배경 */
@@ -1638,4 +1644,38 @@ body {
     font-size: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.top_btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #007bff; /* 원하는 색상으로 변경 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    
+    /* 숨김 처리 및 애니메이션 효과 */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+
+    font-family: 'HeartBubble';
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    padding-top: 4px; /* 💡 이 숫자를 늘릴수록 글자가 아래로 내려갑니다 */
+    box-sizing: border-box;
+}
+
+/* JS에서 이 클래스를 추가해주면 버튼이 나타남 */
+.top_btn.show {
+    opacity: 1;
+    pointer-events: auto;
 }

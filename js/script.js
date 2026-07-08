@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
             direction: 'vertical',
             loop: true,
             autoplay: {
-            delay: 3000, // 3초마다 자동 슬라이드
-            disableOnInteraction: false, // 사용자 조작 후에도 자동 재생 유지
-        },
+                delay: 3000, // 3초마다 자동 슬라이드
+                disableOnInteraction: false, // 사용자 조작 후에도 자동 재생 유지
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const inocean = document.getElementById('Inocean');
     const jellyImage = document.querySelector('.jelly_wrapper');
 
+    const topBtn = document.querySelector('.top_btn');
+
     // 1. 화살표 클릭 이벤트
     if (arrowBtn && speechBubble) {
         arrowBtn.addEventListener('click', (e) => {
@@ -89,6 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     jellyImage.classList.add('animate__animated', 'animate__backOutDown');
                 }
 
+                if (topBtn) {
+                    topBtn.classList.add('show');
+
+                }
                 setTimeout(() => {
                     window.scrollTo({
                         top: inocean.offsetTop,
@@ -96,6 +102,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 }, 800);
             }
+        });
+    }
+
+    if (topBtn) {
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
